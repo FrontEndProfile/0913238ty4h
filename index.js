@@ -7,11 +7,51 @@ const options = {
 };
 
 
+const fetch_api = 'https://free-to-play-games-database.p.rapidapi.com/api/games?platform=pc'
 
-fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=pc', options)
+
+fetch(fetch_api, options)
     .then(response => response.json())
     .then(response => {
-        // console.log(response)
+        const list = response;
+        list.map((item) => {
+            const img_title = item.title;
+            const poster = item.thumbnail;
+            //    const movie = `<img src="${poster}"> <h2>${name}</h2>`
+            // const mean_title = `${img_title}`
+            // document.querySelector("#title").textContent = mean_title
+            //    document.getElementById('title').innerHTML += `${name}`
+
+
+            console.log(img_title);
+            let title_list =document.getElementById('title');
+            let ul_tag = "<ul>";
+            for (let i = 0; i < 300; i++) {
+                ul_tag += "<li>" + img_title[i] + "</li>"
+            }
+            ul_tag += "</ul>";
+            title_list.innerHTML = ul_tag;
+        })
+    })
+    .catch(err => console.error(err));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // console.log(response)
         // debugger
         // id.innerHTML = response[ok].id
         // title.innerHTML = response.title
@@ -24,20 +64,3 @@ fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=pc'
         // developer.innerHTML = response.developer
         // release_date.innerHTML = response.release_date
         // freetogame_profile_url.innerHTML = response.freetogame_profile_url
-
-        // for (let response   x <=302; x++) {
-        //     id.innerHTML = response.id
-        // }
-
-        const list = response;
-        list.map( (item) => {
-           const name  = item.title;
-           const poster = item.thumbnail;
-        //    const movie = `<img src="${poster}"> <h2>${name}</h2>`
-
-        const mean_title = `${name} ++`
-        //    document.querySelector("#title").innerHTML += mean_title
-        //    document.getElementById('title').innerHTML += `${name}`
-        })
-    })
-    .catch(err => console.error(err));
