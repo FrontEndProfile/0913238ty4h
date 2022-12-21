@@ -7,7 +7,8 @@ const options = {
 };
 
 
-const fetch_api = 'https://free-to-play-games-database.p.rapidapi.com/api/games?platform=pc'
+const fetch_api = 'https://free-to-play-games-database.p.rapidapi.com/api/games'
+// const filter_game = 'https://www.freetogame.com/api/games?category=pvp'
 
 
 fetch(fetch_api, options)
@@ -17,50 +18,35 @@ fetch(fetch_api, options)
         list.map((item) => {
             const img_title = item.title;
             const poster = item.thumbnail;
-            //    const movie = `<img src="${poster}"> <h2>${name}</h2>`
-            // const mean_title = `${img_title}`
-            // document.querySelector("#title").textContent = mean_title
-            //    document.getElementById('title').innerHTML += `${name}`
+            const small_info = item.short_description;
+            const download_link = item.game_url;
+            const game_type = item.genre;
+            const platform_type = item.platform;
+            const publisher_auth = item.publisher;
+            const release_time = item.release_date;
+            const togame_game_url = item.freetogame_profile_url;
+            const dev_name = item.developer;
 
+            document.querySelector('#cards').innerHTML += `
+               <div class="col-md-4">
+                <div class="card">
+                    <img class="card_img" src="${poster}">
+                    <div class="card_body">
+                        <h3 class="card_title">${img_title}</h3>
+                        <p class="card_content">${small_info}<p>
+                        <a href="${download_link}" class="card_down_link">Download Link</a>
+                        <p class="card_game_type">Game type: ${game_type}<p>
+                        <p class="card_game_form">Game Requirement: ${platform_type}<p>
+                        <p class="card_game_publisher">publisher by: ${publisher_auth}<p>
+                        <p class="card_game_release">Release: ${release_time}<p>
+                        <a class="card_game_moreInfo" href="${togame_game_url}">More info</a>
+                        <p class="card_game_made">Made by: ${dev_name}<p>
+                    </div>
+                </div>
+              </div>
+            `
 
-            console.log(img_title);
-            let title_list =document.getElementById('title');
-            let ul_tag = "<ul>";
-            for (let i = 0; i < 300; i++) {
-                ul_tag += "<li>" + img_title[i] + "</li>"
-            }
-            ul_tag += "</ul>";
-            title_list.innerHTML = ul_tag;
         })
+        console.log(response);
     })
     .catch(err => console.error(err));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // console.log(response)
-        // debugger
-        // id.innerHTML = response[ok].id
-        // title.innerHTML = response.title
-        // thumbnail.innerHTML = response.thumbnail
-        // short_description.innerHTML = response.short_description
-        // game_url.innerHTML = response.game_url
-        // genre.innerHTML = response.genre
-        // platform.innerHTML = response.platform
-        // publisher.innerHTML = response.publisher
-        // developer.innerHTML = response.developer
-        // release_date.innerHTML = response.release_date
-        // freetogame_profile_url.innerHTML = response.freetogame_profile_url
