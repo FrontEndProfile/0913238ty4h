@@ -29,11 +29,11 @@ a {
     .card {
         border: 0px;
         padding: 12px 18px;
-        margin-bottom: 24px;
         box-shadow: rgba(50, 50, 93, 0.2) 0px 6px 12px -2px, rgba(0, 0, 0, 0.2) 0px 3px 7px -3px;
         background: #312d36;
         color: $content;
-
+        display: flex;
+        height: 100%;
         &_img {
             margin-bottom: 16px;
             border-radius: 6px;
@@ -42,10 +42,25 @@ a {
 
         &_body {
             padding-inline: 6px;
-
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+justify-content: space-between;
             a {
                 color: $link;
             }
+            .links_flex {
+                grid-gap: 18px;
+            }
+            .card_down_link,.card_game_moreInfo {
+                background: #00a98e;
+                padding: 6px 33px;
+                color: white;
+                border-radius: 6px;
+            }
+        }
+        &_content {
+            margin-bottom: 14px;
         }
 
         &_title {
@@ -53,5 +68,11 @@ a {
             font-family: var($font-kanit);
             font-weight: 600;
         }
+    }
+    .col-md-4 {
+        margin-bottom: 24px;
+    }
+    .card_game_type,.card_game_form,.card_game_publisher,.card_game_release,.card_game_made {
+        margin-bottom: 4px;
     }
 }

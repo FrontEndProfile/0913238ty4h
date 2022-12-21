@@ -32,15 +32,20 @@ fetch(fetch_api, options)
                 <div class="card">
                     <img class="card_img" src="${poster}">
                     <div class="card_body">
+                    <div>
                         <h3 class="card_title">${img_title}</h3>
-                        <p class="card_content">${small_info}<p>
+                        <p class="card_content">${small_info}</p>
+                        <p class="card_game_type">Game type: ${game_type}</p>
+                        <p class="card_game_form">Game Requirement: ${platform_type}</p>
+                        <p class="card_game_publisher">publisher by: ${publisher_auth}</p>
+                        <p class="card_game_release">Release: ${release_time}</p>
+                        <p class="card_game_made">Made by: ${dev_name}</p>
+                    </div>
+                    <div class="d-flex align-content-center links_flex">
                         <a href="${download_link}" class="card_down_link">Download Link</a>
-                        <p class="card_game_type">Game type: ${game_type}<p>
-                        <p class="card_game_form">Game Requirement: ${platform_type}<p>
-                        <p class="card_game_publisher">publisher by: ${publisher_auth}<p>
-                        <p class="card_game_release">Release: ${release_time}<p>
                         <a class="card_game_moreInfo" href="${togame_game_url}">More info</a>
-                        <p class="card_game_made">Made by: ${dev_name}<p>
+                    </div>
+                        
                     </div>
                 </div>
               </div>
